@@ -6,6 +6,10 @@ export default function PanelLayout({
     children: React.ReactNode
 }) {
     return (
-        <h1> Panel {children}</h1>
+        <html>
+            <body>
+                {children}
+            </body>
+        </html>
     )
 }

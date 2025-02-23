@@ -27,6 +27,7 @@ export default function Home() {
     setLoading(false);
   };
 
+
   return (
     <main className="flex flex-col items-center justify-center min-h-screen p-4 bg-gray-900 text-white">
       <h1 className="text-3xl font-bold mb-4">🎰 Gacha Simulator</h1>
