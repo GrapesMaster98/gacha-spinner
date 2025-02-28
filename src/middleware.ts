@@ -5,7 +5,7 @@ export default withAuth(
 
     },
     {
-        publicPaths: ['/']
+        publicPaths: ['/', '/api/pull', '/api/items'],
     }
 );
 
