@@ -1,11 +1,13 @@
 'use client';
 
 import { useEffect, useState } from "react";
+import ConfettiBoom from "react-confetti-boom";
 
 export default function Home() {  
-  const [items, setItems] = useState<{id: number; name: string; rarity: string}[]>([]); // Array of items from database
-  const [pulledItem, setPulledItem] = useState<{id: number; name: string; rarity: string} | null>(null); // Selected item
+  const [items, setItems] = useState<{ id: number; name: string; rarity: string }[]>([]); // Array of items from database
+  const [pulledItem, setPulledItem] = useState<{ id: number; name: string; rarity: string } | null>(null); // Selected item
   const [loading, setLoading] = useState(false); // Loading state
+  const [showConfetti, setShowConfetti] = useState(false); // Show confetti when legendary item is pulled
 
   // Fetch items from database on mount and update state
   useEffect(() => {
@@ -18,13 +20,19 @@ export default function Home() {
     FetchItems();
   }, []);
 
-  //Handle Gacha pulls
+  // Handle Gacha pulls
   const PullItem = async () => {
     setLoading(true);
-    const res = await fetch('/api/pull', {method: 'POST'});
+    const res = await fetch('/api/pull', { method: 'POST' });
     const data = await res.json();
     setPulledItem(data);
     setLoading(false);
+
+    // If the item is legendary, trigger confetti
+    if (data.rarity === "Legendary") {
+      setShowConfetti(true);
+      setTimeout(() => setShowConfetti(false), 3000); // Hide confetti after 3 seconds
+    }
   };
 
   return (
@@ -36,7 +44,10 @@ export default function Home() {
           <h2 className="text-xl font-semibold mb-2">Available Items:</h2>
           <ul className="list-disc pl-6">
             {items.map((item) => (
-              <li key={item.id} className={`font-semibold ${item.rarity === "Legendary" ? "text-yellow-500" : "text-gray-400"}`}>
+              <li
+                key={item.id}
+                className={`font-semibold ${item.rarity === "Legendary" ? "text-yellow-500" : "text-gray-400"}`}
+              >
                 {item.name} ({item.rarity})
               </li>
             ))}
@@ -60,6 +71,9 @@ export default function Home() {
           </p>
         </div>
       )}
+
+      {/* Confetti Effect */}
+      {showConfetti && <ConfettiBoom />}
     </main>
   );
 }
