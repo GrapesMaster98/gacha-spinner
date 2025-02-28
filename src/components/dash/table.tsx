@@ -15,7 +15,7 @@ export default function Table({ items }: TableProps) {
   const [editingItem, setEditingItem] = useState<number | null>(null); // Almacena el ID del ítem en edición
 
   const handleDelete = async (id: number) => {
-    const res = await fetch("http://localhost:3000/api/items", {
+    const res = await fetch("https://gachagame.vercel.app/api/items", {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ id }),
@@ -29,7 +29,7 @@ export default function Table({ items }: TableProps) {
   };
 
   const handleAdd = async () => {
-    const res = await fetch("http://localhost:3000/api/items", {
+    const res = await fetch("https://gachagame.vercel.app/api/items", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newItem),
@@ -45,7 +45,7 @@ export default function Table({ items }: TableProps) {
   };
 
   const handleSave = async (id: number, updatedItem: Item) => {
-    const res = await fetch("http://localhost:3000/api/items", {
+    const res = await fetch("https://gachagame.vercel.app/api/items", {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updatedItem),
