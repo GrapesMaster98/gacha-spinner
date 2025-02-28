@@ -2,7 +2,7 @@ import Table from "@/components/dash/table";
 import { Item } from "@/components/itemCols";
 
 async function GetData(): Promise<Item[]> {
-    const res = await fetch("http://localhost:3000/api/items", { cache: "no-store" }); 
+    const res = await fetch("https://gachagame.vercel.app/api/items", { cache: "no-store" }); 
     const data = await res.json();
     return data;
 }
