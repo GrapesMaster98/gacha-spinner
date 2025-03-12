@@ -82,7 +82,6 @@ export async function PATCH(req: Request) {
     .update({ name, rarity, rate })  // Campos a actualizar
     .eq("id", id)  // Filtrar por el ID
     .select("*")  // Seleccionar los campos actualizados
-    .single();  // Retornar un solo registro
 
   if (error) {
     console.log(error);
