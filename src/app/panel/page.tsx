@@ -13,7 +13,7 @@ export default async function Page() {
     return (
         <div className="flex mx-auto flex-col">
             <h1 className="mt-5 font-bold text-xl">Gacha Data Table</h1>
-            <p>Añade y edita valores de los items aquí. Los valores tienen que ser números <strong>enteros</strong> por el momento.</p>
+            <p>Añade y edita valores de los items aquí. Los valores pueden ser númros <strong>enteros</strong> o <strong>decimales</strong>.</p>
 
             <Table items={data}/>
         </div>
