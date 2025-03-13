@@ -98,7 +98,7 @@ export default function Table({ items }: TableProps) {
           />
           <select
             value={newItem.rarity}
-            onChange={(e) => setNewItem({ ...newItem, rarity: e.target.value as "Common" | "Uncommon" | "Rare" | "Ultra Rare" | "Epic" | "Legendary" | "Mythic" })}
+            onChange={(e) => setNewItem({ ...newItem, rarity: e.target.value as Item["rarity"] })}
             className="mr-2 p-1 border"
           >
             <option value="Common">Common</option>
@@ -145,7 +145,7 @@ export default function Table({ items }: TableProps) {
                   {editingItem === item.id ? (
                     <select
                       value={item.rarity}
-                      onChange={(e) => setData(prev => prev.map(i => i.id === item.id ? { ...i, rarity: e.target.value as "Common" | "Uncommon" | "Rare" | "Ultra Rare" | "Epic" | "Legendary" | "Mythic" } : i))}
+                      onChange={(e) => setData(prev => prev.map(i => i.id === item.id ? { ...i, rarity: e.target.value as Item["rarity"] } : i))}
                       className="p-1 border"
                     >
                       <option value="Common">Common</option>
