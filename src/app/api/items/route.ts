@@ -8,7 +8,7 @@ const supabase = createClient(
 );
 
 // Obtener todos los ítems
-const rarityOrder = ['Common', 'Uncommon', 'Rare', 'Epic', 'Legendary'];
+const rarityOrder = ['Common', 'Uncommon', 'Rare', 'Ultra Rare', 'Epic', 'Legendary', 'Mythic'];
 
 export async function GET() {
   const { data, error } = await supabase
