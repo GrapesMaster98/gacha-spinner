@@ -5,7 +5,7 @@ import { ColumnDef } from '@tanstack/react-table';
 export type Item = {
     id: number
     name: string
-    rarity: 'Common' | 'Uncommon' | 'Rare' | 'Epic' | 'Legendary'
+    rarity: 'Common' | 'Uncommon' | 'Rare' | 'Ultra Rare' | 'Epic' | 'Legendary' | 'Mythic'
     rate: number
 }
 

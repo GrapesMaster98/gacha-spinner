@@ -98,14 +98,16 @@ export default function Table({ items }: TableProps) {
           />
           <select
             value={newItem.rarity}
-            onChange={(e) => setNewItem({ ...newItem, rarity: e.target.value as "Common" | "Uncommon" | "Rare" | "Epic" | "Legendary" })}
+            onChange={(e) => setNewItem({ ...newItem, rarity: e.target.value as "Common" | "Uncommon" | "Rare" | "Ultra Rare" | "Epic" | "Legendary" | "Mythic" })}
             className="mr-2 p-1 border"
           >
             <option value="Common">Common</option>
             <option value="Uncommon">Uncommon</option>
             <option value="Rare">Rare</option>
+            <option value="Ultra Rare">Ultra Rare</option>
             <option value="Epic">Epic</option>
             <option value="Legendary">Legendary</option>
+            <option value="Mythic">Mythic</option>
           </select>
           <button onClick={handleAdd} className="bg-green-500 text-white px-4 py-1 rounded">
             Añadir
@@ -143,14 +145,16 @@ export default function Table({ items }: TableProps) {
                   {editingItem === item.id ? (
                     <select
                       value={item.rarity}
-                      onChange={(e) => setData(prev => prev.map(i => i.id === item.id ? { ...i, rarity: e.target.value as "Common" | "Uncommon" | "Rare" | "Epic" | "Legendary" } : i))}
+                      onChange={(e) => setData(prev => prev.map(i => i.id === item.id ? { ...i, rarity: e.target.value as "Common" | "Uncommon" | "Rare" | "Ultra Rare" | "Epic" | "Legendary" | "Mythic" } : i))}
                       className="p-1 border"
                     >
                       <option value="Common">Common</option>
                       <option value="Uncommon">Uncommon</option>
                       <option value="Rare">Rare</option>
+                      <option value="Ultra Rare">Ultra Rare</option>
                       <option value="Epic">Epic</option>
                       <option value="Legendary">Legendary</option>
+                      <option value="Mythic">Mythic</option>
                     </select>
                   ) : (
                     item.rarity
